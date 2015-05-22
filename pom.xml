@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>padexperience</groupId>
+	<artifactId>padexperience</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>PadXperience</name>
+	<description>POC for communication on Android / JavaFX using scala and Puzzle and Dragons</description>
+	<url>https://github.com/adarro</url>
+	<inceptionYear>2015</inceptionYear>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jvm.version>1.8</jvm.version>
+		<maven.compiler.source>${jvm.version}</maven.compiler.source>
+		<maven.compiler.target>${jvm.version}</maven.compiler.target>
+		<encoding>UTF-8</encoding>
+
+		<scala.base>2.11</scala.base>
+		<scala.version>${scala.base}.6</scala.version>
+		<scala.tools.version>${scala.base}</scala.tools.version>
+		<scala.logging.version>2.1.2</scala.logging.version>
+		<license.id>apache_v2</license.id>
+	</properties>
+
+
+
+	<modules>
+		<module>padobjects</module>
+		<module>server</module>
+		<module>client-rich</module>
+		<module>client-android</module>
+	</modules>
+	<organization>
+		<name>TruthEncode</name>
+		<url>https://truthencode.wordpress.com</url>
+	</organization>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Logging -->
+			<dependency>
+				<groupId>com.typesafe.scala-logging</groupId>
+				<artifactId>scala-logging-slf4j_${scala.tools.version}</artifactId>
+				<version>${scala.logging.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.1.2</version>
+			</dependency>
+			<!-- Scala Specific -->
+			<!-- Web Scraping Utility -->
+			<dependency>
+				<groupId>net.ruippeixotog</groupId>
+				<artifactId>scala-scraper_${scala.tools.version}</artifactId>
+				<version>0.1.1</version>
+			</dependency>
+			<!-- Configuration Management -->
+			<dependency>
+				<groupId>com.typesafe</groupId>
+				<artifactId>config</artifactId>
+				<version>1.3.0</version>
+			</dependency>
+			<!-- Test Dependencies -->
+			<dependency>
+				<groupId>org.scala-lang</groupId>
+				<artifactId>scala-library</artifactId>
+				<version>${scala.version}</version>
+			</dependency>
+
+			<!-- Test -->
+			<!-- TODO: check JUnit Depend version here if Java Testing is required 
+				(Currently just using transitives for Scala) -->
+			<!-- <dependency> -->
+			<!-- <groupId>junit</groupId> -->
+			<!-- <artifactId>junit</artifactId> -->
+			<!-- <version>4.11</version> -->
+			<!-- <scope>test</scope> -->
+			<!-- </dependency> -->
+			<dependency>
+				<groupId>org.specs2</groupId>
+				<artifactId>specs2_${scala.tools.version}</artifactId>
+				<version>2.3.12</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.scalatest</groupId>
+				<artifactId>scalatest_${scala.tools.version}</artifactId>
+				<version>2.2.5</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
