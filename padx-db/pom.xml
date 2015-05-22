@@ -8,12 +8,12 @@
 		<artifactId>padexperience</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>padobjects</artifactId>
-	<!-- <version>${pom. 0.0.1-SNAPSHOT</version> -->
-	<name>padobjects</name>
-
+	<artifactId>padx-db</artifactId>
+	<name>padx-db</name>
 	<url>http://maven.apache.org</url>
-
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
@@ -36,6 +36,10 @@
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest_${scala.tools.version}</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.couchbase.lite</groupId>
+			<artifactId>couchbase-lite-java</artifactId>
 		</dependency>
 	</dependencies>
 

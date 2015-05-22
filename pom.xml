@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>padexperience</groupId>
+	<groupId>org-adarro-padexperience</groupId>
 	<artifactId>padexperience</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -16,7 +17,7 @@
 		<maven.compiler.source>${jvm.version}</maven.compiler.source>
 		<maven.compiler.target>${jvm.version}</maven.compiler.target>
 		<encoding>UTF-8</encoding>
-
+		<couchbase.version>1.1.0-525</couchbase.version>
 		<scala.base>2.11</scala.base>
 		<scala.version>${scala.base}.6</scala.version>
 		<scala.tools.version>${scala.base}</scala.tools.version>
@@ -31,6 +32,7 @@
 		<module>server</module>
 		<module>client-rich</module>
 		<module>client-android</module>
+		<module>padx-db</module>
 	</modules>
 	<organization>
 		<name>TruthEncode</name>
@@ -38,6 +40,12 @@
 	</organization>
 	<dependencyManagement>
 		<dependencies>
+			<!-- Database -->
+			<dependency>
+				<groupId>com.couchbase.lite</groupId>
+				<artifactId>couchbase-lite-java</artifactId>
+				<version>${couchbase.version}</version>
+			</dependency>
 			<!-- Logging -->
 			<dependency>
 				<groupId>com.typesafe.scala-logging</groupId>
@@ -92,5 +100,11 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	<repositories>
+		<repository>
+			<id>couchbase-lite</id>
+			<name>Couchbase Lite OSS</name>
+			<url>http://files.couchbase.com/maven2</url>
+		</repository>
+	</repositories>
 </project>
