@@ -34,6 +34,8 @@ object Beastiary extends App with LazyLogging {
     None
   }
 
+  
+  
   def ReadTables(doc: Document, c: CardMeta) = {
 
     import org.adarro.padx.padobjects.CardType._

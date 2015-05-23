@@ -1,4 +1,4 @@
-package org.adarro.padx;
+package org.adarro.padx.db;
 
 import java.io.IOException;
 

@@ -34,12 +34,12 @@ class ConfigurationSuite extends FunSuite with org.scalatest.Matchers with LazyL
     val r = doc >?> element(".statlevel")
     r match {
       case Some(ele) => {
-        logger.debug("Min: {}",ele.nextElementSibling().html)
-        logger.debug("Max: {}",ele.nextElementSibling().nextElementSibling().html)
+        logger.debug("Min: {}", ele.nextElementSibling().html)
+        logger.debug("Max: {}", ele.nextElementSibling().nextElementSibling().html)
       }
       case _ =>
     }
-   
+
   }
   test("Beastiary url should be derived from id") {
     val context = new WebContext()
@@ -82,6 +82,7 @@ class ConfigurationSuite extends FunSuite with org.scalatest.Matchers with LazyL
     val card = new CardMeta(id.toInt)
     logger.debug("attempting to read cardtype before defining {}", card.cardType)
     Beastiary.ReadTables(doc, card)
+
     card.cardType should not be null
     card.subType should not be null
     card.element should not be null
@@ -90,6 +91,10 @@ class ConfigurationSuite extends FunSuite with org.scalatest.Matchers with LazyL
     card.cost should be > 0
     card.minLevel should be > 0
     card.maxLevel should be > 0
+    import org.adarro.padx.padobjects._
+    import com.wix.accord._
+    val result = validate(card)
+
   }
 
   test("Name should be retrievable from id") {

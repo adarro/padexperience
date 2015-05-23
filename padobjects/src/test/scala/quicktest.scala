@@ -89,15 +89,15 @@ class ExampleSpec extends FunSpec {
   import CardElement._
   import CardType._
   @Test def cardInstanceShouldBeInstanciated() {
-    val cardI = CardInstance(3, 23)
-    val cardM = CardMeta("Drawn Joker", Dark, null, Dragon, Devil, 5, 15, 302, 1, 99)
+    val cardI = CardInstance(3)
+    val cardM = CardMeta("Drawn Joker", 302)
     def printCard(card: Card) {
       card match {
-        case CardInstance(i, l, e) => {
+        case CardInstance(i) => {
           println("card Id is:" + i)
         }
-        case CardMeta(n, e, se, t, st, r, c, id, min, max) =>
-          println("Meta Data found for " + n)
+        case x: CardMeta =>
+          println("Meta Data found for %s".format(x.name) )
 
       }
     }

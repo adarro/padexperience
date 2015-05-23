@@ -15,6 +15,29 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<!-- Configuration Management -->
+		<dependency>
+			<groupId>com.typesafe</groupId>
+			<artifactId>config</artifactId>
+		</dependency>
+		<!-- Marshalling / transform -->
+		<dependency>
+			<groupId>net.liftweb</groupId>
+			<artifactId>lift-json_2.11</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.json4s</groupId>
+			<artifactId>json4s-native_${scala.tools.version}</artifactId>			
+		</dependency>
+		<dependency>
+			<groupId>io.spray</groupId>
+			<artifactId>spray-json_2.11</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>padobjects</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
@@ -29,7 +52,7 @@
 		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.specs2</groupId>
-			<artifactId>specs2_${scala.tools.version}</artifactId>
+			<artifactId>specs2-scalacheck_${scala.tools.version}</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -38,8 +61,22 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>			
+			<scope>test</scope>
+			</dependency>
+		<dependency>
 			<groupId>com.couchbase.lite</groupId>
 			<artifactId>couchbase-lite-java</artifactId>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>com.typesafe.scala-logging</groupId>
+			<artifactId>scala-logging-slf4j_${scala.tools.version}</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
 		</dependency>
 	</dependencies>
 
