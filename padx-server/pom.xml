@@ -8,48 +8,48 @@
 		<artifactId>padx-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>padx-db</artifactId>
-	<name>padx-db</name>
+	<artifactId>padx-server</artifactId>
+	<name>server</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<scoverage.plugin.version>1.1.0</scoverage.plugin.version>
 	</properties>
+
 	<dependencies>
-		<!-- Configuration Management -->
-		<dependency>
-			<groupId>com.typesafe</groupId>
-			<artifactId>config</artifactId>
-		</dependency>
-		<!-- Marshalling / transform -->
-		<dependency>
-			<groupId>net.liftweb</groupId>
-			<artifactId>lift-json_2.11</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.json4s</groupId>
-			<artifactId>json4s-native_${scala.tools.version}</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.spray</groupId>
-			<artifactId>spray-json_2.11</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>padx-core</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>padx-db</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!-- Web Scrapping Utility -->
+		<dependency>
+			<groupId>net.ruippeixotog</groupId>
+			<artifactId>scala-scraper_${scala.tools.version}</artifactId>
+			<version>0.1.1</version>
+		</dependency>
+		<!-- Configuration Management -->
+		<dependency>
+			<groupId>com.typesafe</groupId>
+			<artifactId>config</artifactId>
+		</dependency>
+		<!-- Test Dependencies -->
+		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 		</dependency>
 
 		<!-- Test -->
-		<!-- <dependency> -->
-		<!-- <groupId>junit</groupId> -->
-		<!-- <artifactId>junit</artifactId> -->
-		<!-- <version>4.11</version> -->
-		<!-- <scope>test</scope> -->
-		<!-- </dependency> -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.specs2</groupId>
 			<artifactId>specs2-scalacheck_${scala.tools.version}</artifactId>
@@ -58,21 +58,8 @@
 		<dependency>
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest_${scala.tools.version}</artifactId>
+			<version>2.2.5</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.couchbase.lite</groupId>
-			<artifactId>couchbase-lite-java</artifactId>
-		</dependency>
-		<!-- Hacky, couchbase includes Linux native but not win32 in jar -->
-		<dependency>
-			<groupId>com.couchbase.lite</groupId>
-			<artifactId>couchbase-lite-java-native-win32</artifactId>
 		</dependency>
 		<!-- Logging -->
 		<dependency>
@@ -84,6 +71,7 @@
 			<artifactId>logback-classic</artifactId>
 		</dependency>
 	</dependencies>
+
 
 	<build>
 		<sourceDirectory>src/main/scala</sourceDirectory>
@@ -161,6 +149,16 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<!-- Test / Code coverage -->
+			<plugin>
+				<groupId>org.scoverage</groupId>
+				<artifactId>scoverage-maven-plugin</artifactId>
+				<version>${scoverage.plugin.version}</version>
+				<configuration>
+					<!-- <scalaVersion>2.11.4</scalaVersion> -->
+					<!-- other parameters -->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

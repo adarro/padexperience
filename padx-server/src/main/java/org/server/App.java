@@ -1,8 +1,8 @@
-package org.padx.db;
+package org.server;
 
 /*
  * #%L
- * padx-db
+ * server
  * $Id:$
  * $HeadURL:$
  * %%
@@ -21,6 +21,7 @@ package org.padx.db;
  * limitations under the License.
  * #L%
  */
+
 
 /**
  * Hello world!

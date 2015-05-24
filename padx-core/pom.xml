@@ -8,48 +8,27 @@
 		<artifactId>padx-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>padx-db</artifactId>
-	<name>padx-db</name>
+	<artifactId>padx-core</artifactId>
+	<!-- <version>${pom. 0.0.1-SNAPSHOT</version> -->
+	<name>Padx Core</name>
+
 	<url>http://maven.apache.org</url>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+
 	<dependencies>
-		<!-- Configuration Management -->
-		<dependency>
-			<groupId>com.typesafe</groupId>
-			<artifactId>config</artifactId>
-		</dependency>
-		<!-- Marshalling / transform -->
-		<dependency>
-			<groupId>net.liftweb</groupId>
-			<artifactId>lift-json_2.11</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.json4s</groupId>
-			<artifactId>json4s-native_${scala.tools.version}</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.spray</groupId>
-			<artifactId>spray-json_2.11</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>padx-core</artifactId>
-			<version>${project.parent.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.wix</groupId>
+			<artifactId>accord-core_${scala.tools.version}</artifactId>
+		</dependency>
 		<!-- Test -->
-		<!-- <dependency> -->
-		<!-- <groupId>junit</groupId> -->
-		<!-- <artifactId>junit</artifactId> -->
-		<!-- <version>4.11</version> -->
-		<!-- <scope>test</scope> -->
-		<!-- </dependency> -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.specs2</groupId>
 			<artifactId>specs2-scalacheck_${scala.tools.version}</artifactId>
@@ -60,44 +39,11 @@
 			<artifactId>scalatest_${scala.tools.version}</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.couchbase.lite</groupId>
-			<artifactId>couchbase-lite-java</artifactId>
-		</dependency>
-		<!-- Hacky, couchbase includes Linux native but not win32 in jar -->
-		<dependency>
-			<groupId>com.couchbase.lite</groupId>
-			<artifactId>couchbase-lite-java-native-win32</artifactId>
-		</dependency>
-		<!-- Logging -->
-		<dependency>
-			<groupId>com.typesafe.scala-logging</groupId>
-			<artifactId>scala-logging-slf4j_${scala.tools.version}</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
 		<sourceDirectory>src/main/scala</sourceDirectory>
 		<testSourceDirectory>src/test/scala</testSourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
 		<plugins>
 			<plugin>
 				<!-- see http://davidb.github.com/scala-maven-plugin -->
@@ -164,4 +110,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<description>Base logic and items</description>
 </project>
